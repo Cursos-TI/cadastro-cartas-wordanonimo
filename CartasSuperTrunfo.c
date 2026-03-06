@@ -1,15 +1,18 @@
 #include <stdio.h>
 
 int main(){     //Criando as variaveis
-    int     populacao1, populacao2;         //Variaveis da População
-    int     num_turistico1, num_turistico2; //Variaveis do ponto turistico
-    float   area1, area2;                   //Variaveis da Area
-    float   PIB1, PIB2;                     //Variaveis do PIB
-    float   PIBC1, PIBC2;                   //Variaveis do PIB per Capita
-    float   den1, den2;                     //Variaveis da Densidade Populacional
-    char    estado1[20], estado2[20];       //Variaveis do nome do estado
-    char    cod_carta1[20], cod_carta2[20]; //Variaveis do Código da carta
-    char    nome1[20], nome2[20];           //Variaveis do Nome da Cidade
+    unsigned long int    populacao1, populacao2;         //Variaveis da População
+    int                  num_turistico1, num_turistico2; //Variaveis do ponto turistico
+    float                area1, area2;                   //Variaveis da Area
+    float                PIB1, PIB2;                     //Variaveis do PIB
+    float                PIBC1, PIBC2;                   //Variaveis do PIB per Capita
+    float                den1, den2;                     //Variaveis da Densidade Populacional
+    char                 estado1[20], estado2[20];       //Variaveis do nome do estado
+    char                 cod_carta1[20], cod_carta2[20]; //Variaveis do Código da carta
+    char                 nome1[20], nome2[20];           //Variaveis do Nome da Cidade
+    float                superpoder1,superpoder2;
+
+  
 
     printf ("Olá!!! Bem vindo ao armazenamento das informações da carta de Super Trunfo!\n");
     printf ("Por favor, nos dê as informações de suas cartas como é pedido em adiante\n");
@@ -48,7 +51,7 @@ int main(){     //Criando as variaveis
 
     den1   = (float) populacao1 / area1;  //Calculo da Densidade populacional
     PIBC1  = (float) PIB1 / populacao1 ;  //Calculo do PIB per Capita
-
+    superpoder1 = (float) populacao1 + num_turistico1 + area1 + PIB1 + PIBC1 + 1/den1;
     // Coletando da Segunda carta 
     printf ("Digite o nome do Estado:\n");
     scanf  ("%s", &estado2);        // Nome do Estado
@@ -79,7 +82,7 @@ int main(){     //Criando as variaveis
 
     den2   = (float) populacao2 / area2;  //Calculo da Densidade populacional
     PIBC2  = (float) PIB2 / populacao2 ;  //Calculo do PIB per Capita
-
+    superpoder2 = (float) populacao2 + num_turistico2 + area2 + PIB2 + PIBC2 + 1/den2;
     // Mostrando as informações coletadas da primeira carta
     printf ("Primeira Carta\n");
     printf ("Estado: %s\n", estado1);
@@ -90,7 +93,8 @@ int main(){     //Criando as variaveis
     printf ("PIB: %.2f Bilhões de Reais\n", PIB1);
     printf ("Numêro de Pontos Turistico: %d\n", num_turistico1);
     printf ("Densidade populacional: %.2f hab/km²\n", den1);
-    printf ("PIB per Capita: %.2f Reais\n", PIBC1);
+    printf ("PIB per Capita: %.2f reais\n", PIBC1);
+    printf ("superpoder: %.2f\n",superpoder1);
     printf ("\n");
    
     // Mostrando as informações coletadas da segunda carta
@@ -104,5 +108,23 @@ int main(){     //Criando as variaveis
     printf ("Numêro de Pontos Turistico: %d\n", num_turistico2);
     printf ("Densidade populacional: %.2f hab/km²\n", den2);
     printf ("PIB per Capita: %.2f Reais\n", PIBC2);
+    printf ("superpoder: %.2f\n",superpoder2);
+    printf ("\n");
+
+    //Comparação das cartas
+
+    printf("Agora teremos uma comparação as cartas\n");
+    printf("Se o numêro correspondente for 1, a primeira carta ganhou\n");
+    printf("Se o numêro correspondente for 0, a segunda carta ganhou\n");
+    printf("Aqui vai a comparação:\n");
+    printf("\n");
+
+    printf("população:                    %d\n", (populacao1 > populacao2));
+    printf("Área:                         %d\n", (area1 > area2));
+    printf("PIB:                          %d\n", (PIB1 > PIB2));
+    printf("Numêro de pontos turisticos:  %d\n", (num_turistico1 > num_turistico2));
+    printf("Densidade populacional:       %d\n", (den1 < den2));
+    printf("PIB PER CAPITA:               %d\n", (PIBC1 > PIBC2));
+    printf("Superpoder:                   %d\n", (superpoder1 > superpoder2));
 
 }   
